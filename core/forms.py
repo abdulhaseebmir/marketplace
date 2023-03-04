@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
-class SigninFrom(AuthenticationForm):
+class LoginFrom(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         "placeholder": "Your username",
         "class": "w-full py-2 px-3 rounded-lg"
