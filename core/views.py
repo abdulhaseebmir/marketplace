@@ -1,7 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Item, Category
-
-# Create your views here.
+from .forms import SignupForm
 
 def index_view(request):
     items = Item.objects.filter(is_sold=False)
@@ -14,3 +13,20 @@ def index_view(request):
 
 def contact_view(request):
     return render(request, "core/contact.html")
+
+def signup_view(request):
+    if request.method == "POST":
+        form = SignupForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            
+            return redirect("login/")
+    else:
+        form = SignupForm()
+
+    context = {
+        "form": form
+    }
+
+    return render(request, "core/signup.html", context)
