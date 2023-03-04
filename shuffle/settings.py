@@ -18,6 +18,10 @@ DEBUG = True
 # ALLOWED_HOSTS = ["127.0.0.1", "localhost"] # for production
 ALLOWED_HOSTS = []
 
+LOGIN_URL = "login/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_URL = "/"
+
 # Application definition
 
 INSTALLED_APPS = [
